@@ -1,29 +1,36 @@
-<h1><%= @user.username %></h1>
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-1">
 
-<p>Hello, <%= @user.username %></p>
+    <h1><%= @user.username %></h1>
 
-<p>Current Counter Value: <%= @user.counter %></p>
+    <p>Hello, <%= @user.username %></p>
 
-<form action="/user/counter" method="POST">
-  <input type="hidden" name="_method" value="PUT">
+    <p>Current Counter Value: <%= @user.counter %></p>
 
-  <input
-    type="hidden"
-    name="authenticity_token"
-    value="<%= form_authenticity_token %>">
+    <form action="/user/counter" method="POST" role="form">
+      <input type="hidden" name="_method" value="PUT">
 
-  <label for="user_counter">New Counter Value</label>
-  <input type="number" name="user[counter]" id="user_counter">
+      <input
+        type="hidden"
+        name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+      <div class="form-group">
+        <label for="user_counter">New Counter Value</label>
+        <input type="number" name="user[counter]" id="user_counter" class="form-control">
+      </div>
 
-  <input type="submit" value="Update Counter!">
-</form>
+      <input type="submit" value="Update Counter!" class="btn btn-default">
+    </form>
 
-<form action="/session" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input
-    type="hidden"
-    name="authenticity_token"
-    value="<%= form_authenticity_token %>">
+    <form action="/session" method="POST" role="form">
+      <input type="hidden" name="_method" value="DELETE">
+      <input
+        type="hidden"
+        name="authenticity_token"
+        value="<%= form_authenticity_token %>">
 
-  <input type="submit" value="Logout!">
-</form>
+      <input type="submit" value="Logout!" class="btn btn-default">
+    </form>
+
+  </div>
+</div>
